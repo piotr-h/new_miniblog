@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<article>
+  <h2>Edytuj post</h2>
+  <br>
+  <form method="post">
+    {% csrf_token%}
+    {% for field in form %}
+    <div>{{ field|as_crispy_field }}</div>
+    <br>
+    {% endfor %}
+    <button type="submit">Zapisz</button>
+    <input type="hidden" name="next" value="{{ request.GET.next }}">
+  </form>
+</article>
+{% endblock %}

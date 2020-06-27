@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Przykładowy blog</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <script src="https://kit.fontawesome.com/dd3698c7e4.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header>
+    <div class="top">
+      <div class="login-container">
+        {% if user.is_authenticated %}
+        <a href="{% url 'logout' %}">Wyloguj</a>
+        {% else %}
+        <a href="{% url 'login' %}">Zaloguj</a> | <a href="{% url 'signup' %}">Zarejestruj</a>
+        {% endif %}
+      </div>
+    </div>
+    <div class="logo">
+      <h1>Blog</h1>
+    </div>
+  </header>
+  <div class="main-page">
+    <nav>
+      <ul>
+        <div>
+          <li><a href="{% url 'posts' %}">Główna</a></li>
+          <li><a href="{% url 'author_list' %}">Autorzy</a></li>
+          <li><a href="#">O blogu</a></li>
+        </div>
+        {% if user.is_authenticated %}
+        <div id="logged-in">
+          <li id="first">Zalogowano: {{ user.username }}</li>
+          <li><a href="{% url 'user_panel' user.username %}">Panel użytkownika</a></li>
+          <li><a href="{% url 'post_add' %}">Dodaj post</a></li>
+        </div>
+        {% endif %}         
+      </ul> 
+    </nav>
+    <main>
+      {% block content %}
+      {% endblock %}
+    </main>
+  </div>
+  <footer>
+    <p>&copy; Piotr Hoda 2020</p>
+    <p>
+      <a href="https://www.linkedin.com/in/piotr-hoda-670824155/" target="blank"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://github.com/piotr-h" target="blank"><i class="fab fa-github"></i></a>
+    </p>
+  </footer>  
+</body>
+</html>

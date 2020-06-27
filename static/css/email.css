@@ -1,0 +1,15 @@
+body {
+  background-color: #eeeeee; padding-top: 15px;
+}
+
+.container {
+  background-color: #ffffff; 
+  border: dotted gray 1px; 
+  border-radius: 5px; 
+  width: 50%; 
+  margin: auto;
+}
+
+p {
+  text-align: center;
+}

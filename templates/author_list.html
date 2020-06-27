@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="grid_wrapper">
+{% for detail in details %}
+  <article class="avatars">
+    <h3><a href="{% url 'author_detail' detail.username %}">{{ detail.username }}</a></h3>
+    <div class="picture_box">
+      <a href="{% url 'author_detail' detail.username %}"><img src="{{ detail.picture.url }}" alt=""></a> 
+    </div>
+  </article>
+{% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,2 @@
+# miniblog
+A simplified blog written in Django. The key features include adding/editing/deleting posts. You can also edit the user's bio and upload a profile picture. For now, new users can only be created via admin panel (I am working on a full-featured user registration flow). The app was deployed to Heroku and uses Postgres database. AWS S3 was employed for hosting static files and media uploads. You can find the demo at https://mysterious-cliffs-36460.herokuapp.com//

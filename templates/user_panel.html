@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<article>
+  <h2>{{ details.author }}</h2>
+  <h3>Bio:</h3>
+  <p>{{ details.text }} <a href="{% url 'bio_edit' details.username %}">[edytuj]</a></p>
+  <br>
+  <h3>Moje posty:</h3>
+  <br>
+  {% for post in post_list %}
+    <p><a href="{{ post.get_absolute_url }}">{{ post.title }}</a> <a href="{% url 'post_edit' pk=post.pk %}?next={{ request.path|urlencode }}">[edytuj]</a> <a href="{% url 'post_delete' pk=post.pk %}">[usuń]</a></p>
+    <br>
+  {% endfor %}
+  <h4><a href="{% url 'password_change' %}">[zmień hasło]</a></h4>
+</article>
+{% endblock %}
