@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect, HttpResponse
 from django.utils import timezone
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from datetime import timedelta
 
 def posts(request):
   post_list = Post.objects.all().order_by('-created_date')
@@ -20,7 +21,8 @@ def posts(request):
 
 def post_detail(request, pk):
   post = get_object_or_404(Post, pk=pk)
-  return render(request, 'post_detail.html', {'post':post})
+  time_check = (post.edited_date - post.created_date).seconds
+  return render(request, 'post_detail.html', {'post':post, 'time_check':time_check})
 
 @login_required
 def post_add(request):
