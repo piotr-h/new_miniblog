@@ -7,8 +7,8 @@ class Post(models.Model):
   author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
   title = models.CharField('Tytuł', max_length=300)
   text = models.TextField('Treść')
-  created_date = models.DateTimeField('Data utworzenia', default=timezone.now)
-  edited_date = models.DateTimeField('Data edycji', default=timezone.now)
+  created_date = models.DateTimeField('Data utworzenia', auto_now_add=True)
+  edited_date = models.DateTimeField('Data edycji', auto_now=True)
 
   def publish(self):
     self.save()

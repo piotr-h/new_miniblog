@@ -45,7 +45,6 @@ def post_edit(request, pk):
       form = PostForm(request.POST, instance=post)
       if form.is_valid():
         post = form.save(commit=False)
-        post.edited_date = timezone.now()
         post.save()
         if request.POST['next'] != '':
           next = request.POST['next']
