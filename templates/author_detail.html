@@ -4,7 +4,7 @@
   <h3>{{ details.username }}</h3>
   <p id="text">{{ details.text }}</p>
   <br>
-  <h4>Lista postów tej osoby:</h4>
+  <h4>Posts:</h4>
   <br>
   {% for post in post_list %}
     <p><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></p>

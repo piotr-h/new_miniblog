@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
 <article>
-  <p class="date">Utworzono: {{ post.created_date }} przez: <a href="{% url 'author_detail' post.author.username %}">{{ post.author }}</a></p>
+  <p class="date">Created: {{ post.created_date }} by: <a href="{% url 'author_detail' post.author.username %}">{{ post.author }}</a></p>
   {% if time_check >= 1 %}
-  <p class="date">Ostatnio edytowano: {{ post.edited_date }}</p>
+  <p class="date">Last edited: {{ post.edited_date }}</p>
   {% endif %}
   <h3>{{ post.title }}</a> {% if request.user.username == post.author.username %}<a href="{% url 'post_edit' pk=post.pk %}?next={{ request.path|urlencode }}"><i class="fas fa-edit"></i></a> <a href="{% url 'post_delete' pk=post.pk %}"><i class="fas fa-trash-alt"></i></a>{% endif %}</h3>
   <p id="text">{{ post.text }}</p>
-  <p><a href="{% url 'posts' %}">[wróć na główną]</a></p>
+  <p><a href="{% url 'posts' %}">[back to main]</a></p>
 </article>
 {% endblock %}

@@ -2,7 +2,7 @@
 {% block content %}
 <div class="login">
   {% if form.errors %}
-  <p>Coś tu się nie zgadza.</p>
+  <p>Something's wrong...</p>
   {% endif %}
   <form action="{% url 'login' %}" method="post">
   {% csrf_token %}
@@ -16,10 +16,10 @@
       <td>{{ form.password }}</td>
     </tr>
     <tr>
-      <td colspan="3"><input type="submit" value="zaloguj"></td>
+      <td colspan="3"><input type="submit" value="Log In"></td>
     </tr>
   </table> 
   </form>
-  <p><a href="{% url 'password_reset' %}">Nie pamiętasz hasła?</a></p>
+  <p><a href="{% url 'password_reset' %}">Forgot a password?</a></p>
 </div>
 {% endblock %}

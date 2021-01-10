@@ -2,7 +2,7 @@
 {% load crispy_forms_tags %}
 {% block content %}
 <article>
-  <h2>Rejestracja</h2>
+  <h2>Registration</h2>
   <br>
   <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
@@ -10,7 +10,7 @@
     <div>{{ field|as_crispy_field }}</div>
     <br>
     {% endfor %}
-    <button type="submit">Zapisz</button>
+    <button type="submit">Submit</button>
   </form>
 </article>
 {% endblock %}

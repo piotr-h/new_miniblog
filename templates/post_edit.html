@@ -2,7 +2,7 @@
 {% load crispy_forms_tags %}
 {% block content %}
 <article>
-  <h2>Edytuj post</h2>
+  <h2>Edit a post</h2>
   <br>
   <form method="post">
     {% csrf_token%}
@@ -10,7 +10,7 @@
     <div>{{ field|as_crispy_field }}</div>
     <br>
     {% endfor %}
-    <button type="submit">Zapisz</button>
+    <button type="submit">Submit</button>
     <input type="hidden" name="next" value="{{ request.GET.next }}">
   </form>
 </article>
